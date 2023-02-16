@@ -2,14 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-ngx-calendar',
-  template: `
-    <p>
-      ngx-calendar works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './ngx-calendar.component.html',
+  styleUrls: ['./ngx-calendar.component.scss'],
+  styles: [],
 })
-export class NgxCalendarComponent {
-
-}
+export class NgxCalendarComponent {}
