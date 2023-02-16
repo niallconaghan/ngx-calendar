@@ -1,0 +1,14 @@
+.day-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 1.25em;
+}
+
+.day-of-week > * {
+  font-size: 0.7em;
+  color: var(--blue-grey-400);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: center;
+}

@@ -4,22 +4,43 @@
     "injectables": [
         {
             "name": "NgxCalendarService",
-            "id": "injectable-NgxCalendarService-423330ef692aa1702f9cb4dd394de359d637224e5fa72197cf34610bb73cc28794b8ab0bb187e35bc184815cbaf94c681bbd3a159087104f1081b673e9066884",
+            "id": "injectable-NgxCalendarService-2e7b94bebc06b0cc2bf08ce1fc79e2c9fd3be02c8acfedb978c381c9f92f1ecf44974abd0c5a53a48741bb1e29098f737ffb539daa9c46020f2036dcfa65d291",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.service.ts",
             "properties": [],
-            "methods": [],
+            "methods": [
+                {
+                    "name": "getCurrentMonth",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getCurrentYear",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class NgxCalendarService {\n\n  constructor() { }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { DateTime } from 'luxon';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class NgxCalendarService {\n  constructor() {}\n\n  getCurrentMonth(): string {\n    return DateTime.now().monthLong;\n  }\n\n  getCurrentYear(): number {\n    return DateTime.now().year;\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 6
+                "line": 8
             },
             "type": "injectable"
         }
@@ -31,7 +52,7 @@
     "components": [
         {
             "name": "NgxCalendarComponent",
-            "id": "component-NgxCalendarComponent-b58b633379e1f2bee2e35aabd640948209f21c40860c0171c2f11e18030020bb23bb9863dfe5451f3f33e90f21a4e10b59c3e2da1b6b019f84835115a3d4a864",
+            "id": "component-NgxCalendarComponent-836e0faf8452dc4086434125acbbbe5fed99b79461412bc52a779f6c3cb331c43d2774316158151bf88f49e990964e8910a9d5c8343948481ba17784ce06b19b",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -49,7 +70,21 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "ngxCalendarService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "NgxCalendarService",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123,
+                        144
+                    ]
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -58,7 +93,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  styles: [],\n})\nexport class NgxCalendarComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'lib-ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  styles: [],\n})\nexport class NgxCalendarComponent {\n  constructor(public readonly ngxCalendarService: NgxCalendarService) {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -67,7 +102,33 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<main>\n  <div class=\"calendar\">\n    <div class=\"month-indicator\">\n      <time datetime=\"2019-02\"> February 2019 </time>\n    </div>\n    <div class=\"day-of-week\">\n      <div>Su</div>\n      <div>Mo</div>\n      <div>Tu</div>\n      <div>We</div>\n      <div>Th</div>\n      <div>Fr</div>\n      <div>Sa</div>\n    </div>\n    <div class=\"date-grid\">\n      <button>\n        <time datetime=\"2019-02-01\">1</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-02\">2</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-03\">3</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-04\">4</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-05\">5</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-06\">6</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-07\">7</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-08\">8</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-09\">9</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-10\">10</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-11\">11</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-12\">12</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-13\">13</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-14\">14</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-15\">15</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-16\">16</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-17\">17</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-18\">18</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-19\">19</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-20\">20</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-21\">21</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-22\">22</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-23\">23</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-24\">24</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-25\">25</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-26\">26</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-27\">27</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-28\">28</time>\n      </button>\n    </div>\n  </div>\n</main>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<main>\n  <div class=\"calendar\">\n    <div class=\"month-indicator\">\n      <time datetime=\"2019-02\">\n        {{ ngxCalendarService.getCurrentMonth() }}\n        {{ ngxCalendarService.getCurrentYear() }}\n      </time>\n    </div>\n    <div class=\"day-of-week\">\n      <div>Su</div>\n      <div>Mo</div>\n      <div>Tu</div>\n      <div>We</div>\n      <div>Th</div>\n      <div>Fr</div>\n      <div>Sa</div>\n    </div>\n    <div class=\"date-grid\">\n      <button>\n        <time datetime=\"2019-02-01\">1</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-02\">2</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-03\">3</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-04\">4</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-05\">5</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-06\">6</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-07\">7</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-08\">8</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-09\">9</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-10\">10</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-11\">11</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-12\">12</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-13\">13</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-14\">14</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-15\">15</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-16\">16</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-17\">17</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-18\">18</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-19\">19</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-20\">20</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-21\">21</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-22\">22</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-23\">23</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-24\">24</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-25\">25</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-26\">26</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-27\">27</time>\n      </button>\n      <button>\n        <time datetime=\"2019-02-28\">28</time>\n      </button>\n    </div>\n  </div>\n</main>\n"
         }
     ],
     "modules": [
@@ -181,7 +242,7 @@
                 "linktype": "component",
                 "name": "NgxCalendarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -190,7 +251,7 @@
                 "linktype": "injectable",
                 "name": "NgxCalendarService",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
