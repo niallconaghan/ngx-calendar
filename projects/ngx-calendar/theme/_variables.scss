@@ -1,0 +1,42 @@
+:root {
+  --calendar-font: Arial, sans-serif;
+  --calendar-background: transparent;
+
+  --calendar-month-font-weight: 600;
+  --calendar-month-font-size: 16px;
+
+  --calendar-year-font-weight: 400;
+  --calendar-year-font-size: 16px;
+
+  --calendar-month-color: black;
+  --calendar-year-color: black;
+
+  --calendar-previous-month-color: black;
+  --calendar-next-month-color: black;
+
+  --calendar-previous-month-background-color: transparent;
+  --calendar-next-month-background-color: transparent;
+
+  --calendar-previous-month-font-weight: 400;
+  --calendar-next-month-font-weight: 400;
+
+  --calendar-previous-month-font-size: 22px;
+  --calendar-next-month-font-size: 22px;
+
+  --calendar-cell-height: 5ch;
+  --calendar-cell-width: 5ch;
+
+  --calendar-cell-background-color: transparent;
+  --calendar-cell-color: black;
+
+  --calendar-cell-today-color: #2460c0;
+  --calendar-cell-today-background-color: transparent;
+
+  --calendar-cell-selected-date-background-color: #e7e7e7;
+  --calendar-cell-selected-date-color: black;
+
+  --calendar-cell-gap: 2px;
+  --calendar-cell-border-radius: 4px;
+
+  --calendar-weekday-color: #b7b7b7;
+}

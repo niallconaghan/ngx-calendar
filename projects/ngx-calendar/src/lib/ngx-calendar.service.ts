@@ -24,7 +24,7 @@ export class NgxCalendarService {
   }
 
   getWeekdays(): string[] {
-    return Info.weekdays('narrow');
+    return Info.weekdays('short');
   }
 
   nextMonth(): void {

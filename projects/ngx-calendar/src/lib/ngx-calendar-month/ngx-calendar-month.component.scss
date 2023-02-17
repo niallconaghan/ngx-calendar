@@ -1,19 +1,47 @@
-.month {
+@use '../../../theme/variables';
+
+.month-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
 
+.month {
+  font-weight: var(--calendar-month-font-weight);
+  font-size: var(--calendar-month-font-size);
+  color: var(--calendar-month-color);
+  padding-left: 8px;
+}
+
+.year {
+  font-weight: var(--calendar-year-font-weight);
+  font-size: var(--calendar-year-font-size);
+  color: var(--calendar-year-color);
+}
+
 button {
-  font-size: 22px;
-  border: 0;
-  background-color: transparent;
   width: 30px;
   height: 30px;
+
+  border: 0;
 }
 
 button:hover,
 button:focus {
   outline: none;
+}
+
+.previous {
+  background-color: var(--calendar-previous-month-background-color);
+  font-weight: var(--calendar-previous-month-font-weight);
+  font-size: var(--calendar-previous-month-font-size);
+  color: var(--calendar-previous-month-color);
+}
+
+.next {
+  background-color: var(--calendar-next-month-background-color);
+  font-weight: var(--calendar-next-month-font-weight);
+  font-size: var(--calendar-next-month-font-size);
+  color: var(--calendar-next-month-color);
 }

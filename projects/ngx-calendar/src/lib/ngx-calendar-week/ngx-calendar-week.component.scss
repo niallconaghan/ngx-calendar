@@ -1,7 +1,8 @@
 .day-of-week {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   margin-top: 1.25em;
+  color: var(--calendar-weekday-color);
 }
 
 .day-of-week > * {

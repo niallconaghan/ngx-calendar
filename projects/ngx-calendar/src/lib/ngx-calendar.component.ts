@@ -4,6 +4,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  ViewEncapsulation,
 } from '@angular/core';
 import { DateTime } from 'luxon';
 import { Subject, takeUntil } from 'rxjs';
@@ -13,7 +14,7 @@ import { NgxCalendarService } from './ngx-calendar.service';
   selector: 'lib-ngx-calendar',
   templateUrl: './ngx-calendar.component.html',
   styleUrls: ['./ngx-calendar.component.scss'],
-  styles: [],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NgxCalendarComponent implements OnDestroy {
   @Input() set datetime(value: DateTime) {
@@ -22,6 +23,9 @@ export class NgxCalendarComponent implements OnDestroy {
 
   @Output() datetimeChange = new EventEmitter<DateTime>();
 
+  /**
+   * @ignore
+   */
   private readonly _destroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly ngxCalendarService: NgxCalendarService) {

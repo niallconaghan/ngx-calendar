@@ -1,21 +1,26 @@
+@use '../../../theme/variables';
+
 .date-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .date-grid {
   margin-top: 0.5em;
+  gap: var(--calendar-cell-gap);
 }
 
 .date-grid button {
   position: relative;
   border: 0;
-  width: 4.5ch;
-  height: 4.5ch;
+  width: var(--calendar-cell-width);
+  height: var(--calendar-cell-height);
+  border-radius: var(--calendar-cell-border-radius);
 }
 
 .date-button {
-  background-color: transparent;
+  background-color: var(--calendar-cell-background-color);
+  color: var(--calendar-cell-color);
 }
 
 .date-grid button:hover,
@@ -24,9 +29,10 @@
 }
 
 .today {
-  color: blue;
+  color: var(--calendar-cell-today-color);
 }
 
 .selected {
-  background-color: darkgray;
+  background-color: var(--calendar-cell-selected-date-background-color);
+  color: var(--calendar-cell-selected-date-color);
 }
