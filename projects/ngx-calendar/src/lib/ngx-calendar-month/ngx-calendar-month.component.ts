@@ -9,4 +9,12 @@ import { NgxCalendarService } from '../ngx-calendar.service';
 export class NgxCalendarMonthComponent {
   currentMonth$ = this.ngxCalendarService.currentMonth$;
   constructor(private readonly ngxCalendarService: NgxCalendarService) {}
+
+  next(): void {
+    this.ngxCalendarService.nextMonth();
+  }
+
+  previous(): void {
+    this.ngxCalendarService.previousMonth();
+  }
 }

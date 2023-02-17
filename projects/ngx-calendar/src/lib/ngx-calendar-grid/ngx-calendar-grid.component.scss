@@ -1,0 +1,41 @@
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date-grid {
+  margin-top: 0.5em;
+}
+
+.date-grid button {
+  position: relative;
+  border: 0;
+  width: 4.5ch;
+  height: 4.5ch;
+}
+
+.date-button {
+  background-color: transparent;
+}
+
+.date-grid button:hover,
+.date-grid button:focus {
+  outline: none;
+  // background-color: #f0f4f8;
+  // color: #334e68;
+}
+
+.date-grid button:active,
+.date-grid button.selected {
+  // background-color: #c6f7e2;
+  // color: #014d40;
+}
+
+.today {
+  // background-color: lightgrey;
+  color: blue;
+}
+
+.selected {
+  background-color: darkgray;
+}

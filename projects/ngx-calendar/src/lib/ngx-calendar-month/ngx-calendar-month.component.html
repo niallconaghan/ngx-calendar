@@ -1,4 +1,8 @@
 <div class="month">
-  {{ (currentMonth$ | async)?.monthLong }}
-  {{ (currentMonth$ | async)?.year }}
+  <button (click)="previous()">&lsaquo;</button>
+  <div>
+    {{ (currentMonth$ | async)?.monthLong }}
+    {{ (currentMonth$ | async)?.year }}
+  </div>
+  <button (click)="next()">&rsaquo;</button>
 </div>
