@@ -1,47 +1,4 @@
-main {
+.calendar {
   max-width: max-content;
-  margin: 3em auto 0 auto;
   padding: 1.5em;
-  // background-color: #fff;
-  // border: 1px solid #bcccdc;
-  border-radius: 8px;
 }
-
-// .date-grid {
-//   display: grid;
-//   grid-template-columns: repeat(7, 1fr);
-// }
-
-// /* Dates */
-// .date-grid {
-//   margin-top: 0.5em;
-// }
-
-// /* Positioning the first day */
-// .date-grid button:first-child {
-//   grid-column: 6;
-// }
-
-// Style for each day
-// .date-grid button {
-//   position: relative;
-//   border: 0;
-//   width: 4.5ch;
-//   height: 4.5ch;
-//   border-radius: 50%;
-//   background-color: transparent;
-//   color: #102a43;
-// }
-
-// .date-grid button:hover,
-// .date-grid button:focus {
-//   outline: none;
-//   background-color: #f0f4f8;
-//   color: #334e68;
-// }
-
-// .date-grid button:active,
-// .date-grid button.is-selected {
-//   background-color: #c6f7e2;
-//   color: #014d40;
-// }

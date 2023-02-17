@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // color: #334e68;
   text-align: center;
 }
 
@@ -10,8 +9,6 @@ button {
   font-size: 22px;
   border: 0;
   background-color: transparent;
-  // color: #102a43;
-
   width: 30px;
   height: 30px;
 }
@@ -19,12 +16,4 @@ button {
 button:hover,
 button:focus {
   outline: none;
-  // background-color: #f0f4f8;
-  // color: #334e68;
-}
-
-button:active,
-button.is-selected {
-  // background-color: #c6f7e2;
-  // color: #014d40;
 }

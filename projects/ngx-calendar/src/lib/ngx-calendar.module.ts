@@ -7,7 +7,13 @@ import { NgxCalendarGridComponent } from './ngx-calendar-grid/ngx-calendar-grid.
 import { NgxCalendarDateComponent } from './ngx-calendar-date/ngx-calendar-date.component';
 
 @NgModule({
-  declarations: [NgxCalendarComponent, NgxCalendarMonthComponent, NgxCalendarWeekComponent, NgxCalendarGridComponent, NgxCalendarDateComponent],
+  declarations: [
+    NgxCalendarComponent,
+    NgxCalendarMonthComponent,
+    NgxCalendarWeekComponent,
+    NgxCalendarGridComponent,
+    NgxCalendarDateComponent,
+  ],
   imports: [CommonModule],
   exports: [NgxCalendarComponent],
 })
