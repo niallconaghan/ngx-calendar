@@ -17,7 +17,7 @@ import { NgxCalendarService } from './ngx-calendar.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class NgxCalendarComponent implements OnDestroy {
-  @Input() set datetime(value: DateTime) {
+  @Input() set datetime(value: DateTime | undefined) {
     this.ngxCalendarService.setDatetime(value);
   }
 

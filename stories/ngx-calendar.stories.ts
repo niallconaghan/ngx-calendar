@@ -30,7 +30,9 @@ Default.decorators = [
   ),
 ];
 
-Default.args = {} as unknown as Partial<NgxCalendarComponent>;
+Default.args = {
+  datetime: undefined,
+} as unknown as Partial<NgxCalendarComponent>;
 
 export const SelectedDate = Template.bind({});
 

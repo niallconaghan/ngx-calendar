@@ -18,9 +18,9 @@ export class NgxCalendarService {
 
   constructor() {}
 
-  setDatetime(value: DateTime): void {
+  setDatetime(value: DateTime | undefined): void {
     this.selectedDate$.next(value);
-    this.currentMonth$.next(value);
+    this.currentMonth$.next(value ?? DateTime.now());
   }
 
   getWeekdays(): string[] {

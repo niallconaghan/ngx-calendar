@@ -17,11 +17,24 @@ import { NgxCalendarService } from '../ngx-calendar.service';
   templateUrl: './ngx-calendar-date.component.html',
   styleUrls: ['./ngx-calendar-date.component.scss'],
 })
-export class NgxCalendarDateComponent {
+export class NgxCalendarDateComponent implements OnDestroy {
   @Input() date!: number;
-  @Input() selectedDate?: DateTime;
+  selectedDate?: DateTime;
 
-  constructor(private readonly ngxCalendarService: NgxCalendarService) {}
+  private readonly destroy$ = new Subject<void>();
+
+  constructor(private readonly ngxCalendarService: NgxCalendarService) {
+    this.ngxCalendarService.selectedDate$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((selectedDate: DateTime | undefined) => {
+        this.selectedDate = selectedDate;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   @HostListener('click')
   onClick(): void {

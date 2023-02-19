@@ -15,12 +15,6 @@ export class NgxCalendarGridComponent implements OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   constructor(private readonly ngxCalendarService: NgxCalendarService) {
-    this.ngxCalendarService.selectedDate$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((selectedDate: DateTime | undefined) => {
-        this.selectedDate = selectedDate;
-      });
-
     this.ngxCalendarService.currentMonth$
       .pipe(takeUntil(this.destroy$))
       .subscribe((datetime: DateTime) => {
