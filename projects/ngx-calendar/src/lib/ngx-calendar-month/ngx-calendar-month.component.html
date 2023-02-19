@@ -1,15 +1,15 @@
-<div class="month-wrapper">
+<div class="ngx-calendar-month-heading">
   <div>
-    <span class="month">
+    <span class="ngx-calendar-month">
       {{ (currentMonth$ | async)?.monthLong }}
     </span>
 
-    <span class="year">
+    <span class="ngx-calendar-year">
       {{ (currentMonth$ | async)?.year }}
     </span>
   </div>
   <div>
-    <button class="previous" (click)="previous()">&lsaquo;</button>
-    <button class="next" (click)="next()">&rsaquo;</button>
+    <button class="ngx-calendar-previous" (click)="previous()">&lsaquo;</button>
+    <button class="ngx-calendar-next" (click)="next()">&rsaquo;</button>
   </div>
 </div>

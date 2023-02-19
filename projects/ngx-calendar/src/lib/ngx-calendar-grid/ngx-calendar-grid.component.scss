@@ -1,38 +1,40 @@
 @use '../../../theme/variables';
 
-.date-grid {
+.ngx-calendar-date-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, auto));
 }
 
-.date-grid {
+.ngx-calendar-date-grid {
   margin-top: 0.5em;
-  gap: var(--calendar-cell-gap);
+  gap: var(--ngx-calendar-cell-gap);
 }
 
-.date-grid button {
+.ngx-calendar-date-grid button {
   position: relative;
   border: 0;
-  width: var(--calendar-cell-width);
-  height: var(--calendar-cell-height);
-  border-radius: var(--calendar-cell-border-radius);
+  width: var(--ngx-calendar-cell-width);
+  height: var(--ngx-calendar-cell-height);
+  border-radius: var(--ngx-calendar-cell-border-radius);
+
+  aspect-ratio: 1;
 }
 
-.date-button {
-  background-color: var(--calendar-cell-background-color);
-  color: var(--calendar-cell-color);
+.ngx-calendar-date-button {
+  background-color: var(--ngx-calendar-cell-background-color);
+  color: var(--ngx-calendar-cell-color);
 }
 
-.date-grid button:hover,
-.date-grid button:focus {
+.ngx-calendar-date-grid button:hover,
+.ngx-calendar-date-grid button:focus {
   outline: none;
 }
 
-.today {
-  color: var(--calendar-cell-today-color);
+.ngx-calendar-today {
+  color: var(--ngx-calendar-cell-today-color);
 }
 
-.selected {
-  background-color: var(--calendar-cell-selected-date-background-color);
-  color: var(--calendar-cell-selected-date-color);
+.ngx-calendar-selected {
+  background-color: var(--ngx-calendar-cell-selected-date-background-color);
+  color: var(--ngx-calendar-cell-selected-date-color);
 }

@@ -13,7 +13,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NgxCalendarService } from '../ngx-calendar.service';
 
 @Component({
-  selector: 'button [lib-ngx-calendar-date]',
+  selector: 'button [ngx-calendar-date]',
   templateUrl: './ngx-calendar-date.component.html',
   styleUrls: ['./ngx-calendar-date.component.scss'],
 })
@@ -37,7 +37,7 @@ export class NgxCalendarDateComponent {
       : null;
   }
 
-  @HostBinding('class.today')
+  @HostBinding('class.ngx-calendar-today')
   get isToday() {
     return (
       this.date === DateTime.now().day &&
@@ -46,7 +46,7 @@ export class NgxCalendarDateComponent {
     );
   }
 
-  @HostBinding('class.selected')
+  @HostBinding('class.ngx-calendar-selected')
   get isSelected() {
     return (
       this.date === this.selectedDate?.day &&

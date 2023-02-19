@@ -1,8 +1,8 @@
 @use '../../theme/variables';
 
-.calendar {
-  font-family: var(--calendar-font);
-  max-width: max-content;
-  padding: 1.5em;
-  background-color: var(--calendar-background);
+.ngx-calendar {
+  font-family: var(--ngx-calendar-font);
+  width: var(--ngx-calendar-width);
+  padding: var(--ngx-calendar-padding);
+  background-color: var(--ngx-calendar-background);
 }

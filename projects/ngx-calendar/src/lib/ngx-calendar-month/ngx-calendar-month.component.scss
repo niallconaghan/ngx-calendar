@@ -1,23 +1,23 @@
 @use '../../../theme/variables';
 
-.month-wrapper {
+.ngx-calendar-month-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
 
-.month {
-  font-weight: var(--calendar-month-font-weight);
-  font-size: var(--calendar-month-font-size);
-  color: var(--calendar-month-color);
+.ngx-calendar-month {
+  font-weight: var(--ngx-calendar-month-font-weight);
+  font-size: var(--ngx-calendar-month-font-size);
+  color: var(--ngx-calendar-month-color);
   padding-left: 8px;
 }
 
-.year {
-  font-weight: var(--calendar-year-font-weight);
-  font-size: var(--calendar-year-font-size);
-  color: var(--calendar-year-color);
+.ngx-calendar-year {
+  font-weight: var(--ngx-calendar-year-font-weight);
+  font-size: var(--ngx-calendar-year-font-size);
+  color: var(--ngx-calendar-year-color);
 }
 
 button {
@@ -32,16 +32,16 @@ button:focus {
   outline: none;
 }
 
-.previous {
-  background-color: var(--calendar-previous-month-background-color);
-  font-weight: var(--calendar-previous-month-font-weight);
-  font-size: var(--calendar-previous-month-font-size);
-  color: var(--calendar-previous-month-color);
+.ngx-calendar-previous {
+  background-color: var(--ngx-calendar-previous-month-background-color);
+  font-weight: var(--ngx-calendar-previous-month-font-weight);
+  font-size: var(--ngx-calendar-previous-month-font-size);
+  color: var(--ngx-calendar-previous-month-color);
 }
 
-.next {
-  background-color: var(--calendar-next-month-background-color);
-  font-weight: var(--calendar-next-month-font-weight);
-  font-size: var(--calendar-next-month-font-size);
-  color: var(--calendar-next-month-color);
+.ngx-calendar-next {
+  background-color: var(--ngx-calendar-next-month-background-color);
+  font-weight: var(--ngx-calendar-next-month-font-weight);
+  font-size: var(--ngx-calendar-next-month-font-size);
+  color: var(--ngx-calendar-next-month-color);
 }

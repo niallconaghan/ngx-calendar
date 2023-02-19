@@ -1,42 +1,45 @@
 :root {
-  --calendar-font: Arial, sans-serif;
-  --calendar-background: transparent;
+  --ngx-calendar-font: Arial, sans-serif;
+  --ngx-calendar-background: transparent;
 
-  --calendar-month-font-weight: 600;
-  --calendar-month-font-size: 16px;
+  --ngx-calendar-padding: 0;
+  --ngx-calendar-width: auto;
 
-  --calendar-year-font-weight: 400;
-  --calendar-year-font-size: 16px;
+  --ngx-calendar-month-font-weight: 600;
+  --ngx-calendar-month-font-size: 16px;
 
-  --calendar-month-color: black;
-  --calendar-year-color: black;
+  --ngx-calendar-year-font-weight: 400;
+  --ngx-calendar-year-font-size: 16px;
 
-  --calendar-previous-month-color: black;
-  --calendar-next-month-color: black;
+  --ngx-calendar-month-color: black;
+  --ngx-calendar-year-color: black;
 
-  --calendar-previous-month-background-color: transparent;
-  --calendar-next-month-background-color: transparent;
+  --ngx-calendar-previous-month-color: black;
+  --ngx-calendar-next-month-color: black;
 
-  --calendar-previous-month-font-weight: 400;
-  --calendar-next-month-font-weight: 400;
+  --ngx-calendar-previous-month-background-color: transparent;
+  --ngx-calendar-next-month-background-color: transparent;
 
-  --calendar-previous-month-font-size: 22px;
-  --calendar-next-month-font-size: 22px;
+  --ngx-calendar-previous-month-font-weight: 400;
+  --ngx-calendar-next-month-font-weight: 400;
 
-  --calendar-cell-height: 5ch;
-  --calendar-cell-width: 5ch;
+  --ngx-calendar-previous-month-font-size: 22px;
+  --ngx-calendar-next-month-font-size: 22px;
 
-  --calendar-cell-background-color: transparent;
-  --calendar-cell-color: black;
+  --ngx-calendar-cell-height: auto;
+  --ngx-calendar-cell-width: auto;
 
-  --calendar-cell-today-color: #2460c0;
-  --calendar-cell-today-background-color: transparent;
+  --ngx-calendar-cell-background-color: transparent;
+  --ngx-calendar-cell-color: black;
 
-  --calendar-cell-selected-date-background-color: #e7e7e7;
-  --calendar-cell-selected-date-color: black;
+  --ngx-calendar-cell-today-color: #2460c0;
+  --ngx-calendar-cell-today-background-color: transparent;
 
-  --calendar-cell-gap: 2px;
-  --calendar-cell-border-radius: 4px;
+  --ngx-calendar-cell-selected-date-background-color: #e7e7e7;
+  --ngx-calendar-cell-selected-date-color: black;
 
-  --calendar-weekday-color: #b7b7b7;
+  --ngx-calendar-cell-gap: 2px;
+  --ngx-calendar-cell-border-radius: 4px;
+
+  --ngx-calendar-weekday-color: #b7b7b7;
 }

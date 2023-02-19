@@ -132,7 +132,7 @@
     "components": [
         {
             "name": "NgxCalendarComponent",
-            "id": "component-NgxCalendarComponent-12b0d2ae9846910a7524c4a35efbc5acd441acf3910f4effac64806aef5895e9ea87072f8fca697a007469c785cab1f43b3ce931f0f8cdd2068e7e0ef12e9aac",
+            "id": "component-NgxCalendarComponent-a9578e805957a8eb27fae550be338df99fe4f6aed8738649d6a297ce442c6254fb3f2381f8e9f94e1a7c043629a87d8f32e9ccd138550deaa4521ff847a3d24e",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -141,7 +141,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-ngx-calendar",
+            "selector": "ngx-calendar",
             "styleUrls": [
                 "./ngx-calendar.component.scss"
             ],
@@ -190,11 +190,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'lib-ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use '../../theme/variables';\n\n.calendar {\n  font-family: var(--calendar-font);\n  max-width: max-content;\n  padding: 1.5em;\n  background-color: var(--calendar-background);\n}\n",
+                    "data": "@use '../../theme/variables';\n\n.ngx-calendar {\n  font-family: var(--ngx-calendar-font);\n  width: var(--ngx-calendar-width);\n  padding: var(--ngx-calendar-padding);\n  background-color: var(--ngx-calendar-background);\n}\n",
                     "styleUrl": "./ngx-calendar.component.scss"
                 }
             ],
@@ -260,18 +260,18 @@
                     }
                 }
             },
-            "templateData": "<div class=\"calendar\">\n  <lib-ngx-calendar-month></lib-ngx-calendar-month>\n  <lib-ngx-calendar-week></lib-ngx-calendar-week>\n  <lib-ngx-calendar-grid></lib-ngx-calendar-grid>\n</div>\n"
+            "templateData": "<div class=\"ngx-calendar\">\n  <ngx-calendar-month></ngx-calendar-month>\n  <ngx-calendar-week></ngx-calendar-week>\n  <ngx-calendar-grid></ngx-calendar-grid>\n</div>\n"
         },
         {
             "name": "NgxCalendarDateComponent",
-            "id": "component-NgxCalendarDateComponent-dc02efe16ca1e1358871781851130c0e02f49c5d8da440ec8e7ddbec24318ab737da36f745b95f09afb37fc34734c0a57b515a1a8714bd2171090e681cfc5a2f",
+            "id": "component-NgxCalendarDateComponent-70dcfb0133b20cb3730b99d521f4b7def4ad36b0efb2fd7db86bac8b1a55a7b2633bcfc4d2c07c21ea2c7d4afce8ab20d73a9a8612e966535af0e3447329c0ad",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar-date/ngx-calendar-date.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "button [lib-ngx-calendar-date]",
+            "selector": "button [ngx-calendar-date]",
             "styleUrls": [
                 "./ngx-calendar-date.component.scss"
             ],
@@ -322,7 +322,7 @@
             "deprecationMessage": "",
             "hostBindings": [
                 {
-                    "name": "class.selected",
+                    "name": "class.ngx-calendar-selected",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 50,
@@ -330,7 +330,7 @@
                     "decorators": []
                 },
                 {
-                    "name": "class.today",
+                    "name": "class.ngx-calendar-today",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 41,
@@ -359,7 +359,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Host,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n} from '@angular/core';\nimport { NgControl } from '@angular/forms';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'button [lib-ngx-calendar-date]',\n  templateUrl: './ngx-calendar-date.component.html',\n  styleUrls: ['./ngx-calendar-date.component.scss'],\n})\nexport class NgxCalendarDateComponent {\n  @Input() date!: number;\n  @Input() selectedDate?: DateTime;\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {}\n\n  @HostListener('click')\n  onClick(): void {\n    this.ngxCalendarService.dateSelected$.next(\n      this.ngxCalendarService.currentMonth.set({ day: this.date })\n    );\n  }\n\n  @HostBinding('style.grid-column')\n  get gridOffset() {\n    return this.date === 1\n      ? this.ngxCalendarService.currentMonth.startOf('month').weekday\n      : null;\n  }\n\n  @HostBinding('class.today')\n  get isToday() {\n    return (\n      this.date === DateTime.now().day &&\n      this.ngxCalendarService.currentMonth.month === DateTime.now().month &&\n      this.ngxCalendarService.currentMonth.year === DateTime.now().year\n    );\n  }\n\n  @HostBinding('class.selected')\n  get isSelected() {\n    return (\n      this.date === this.selectedDate?.day &&\n      this.ngxCalendarService.currentMonth.month === this.selectedDate?.month &&\n      this.ngxCalendarService.currentMonth.year === this.selectedDate?.year\n    );\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Host,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n} from '@angular/core';\nimport { NgControl } from '@angular/forms';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'button [ngx-calendar-date]',\n  templateUrl: './ngx-calendar-date.component.html',\n  styleUrls: ['./ngx-calendar-date.component.scss'],\n})\nexport class NgxCalendarDateComponent {\n  @Input() date!: number;\n  @Input() selectedDate?: DateTime;\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {}\n\n  @HostListener('click')\n  onClick(): void {\n    this.ngxCalendarService.dateSelected$.next(\n      this.ngxCalendarService.currentMonth.set({ day: this.date })\n    );\n  }\n\n  @HostBinding('style.grid-column')\n  get gridOffset() {\n    return this.date === 1\n      ? this.ngxCalendarService.currentMonth.startOf('month').weekday\n      : null;\n  }\n\n  @HostBinding('class.ngx-calendar-today')\n  get isToday() {\n    return (\n      this.date === DateTime.now().day &&\n      this.ngxCalendarService.currentMonth.month === DateTime.now().month &&\n      this.ngxCalendarService.currentMonth.year === DateTime.now().year\n    );\n  }\n\n  @HostBinding('class.ngx-calendar-selected')\n  get isSelected() {\n    return (\n      this.date === this.selectedDate?.day &&\n      this.ngxCalendarService.currentMonth.month === this.selectedDate?.month &&\n      this.ngxCalendarService.currentMonth.year === this.selectedDate?.year\n    );\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -427,14 +427,14 @@
         },
         {
             "name": "NgxCalendarGridComponent",
-            "id": "component-NgxCalendarGridComponent-f1ba2d4db8cca6accef228eb41d30776fd7b06f3be2a443f36f7ae6e00c93e500cea213ab26d9ed7a07bc3e64ec0d320d1d5547ec30aef2710622eca94517730",
+            "id": "component-NgxCalendarGridComponent-c09c9de68b5df468e5e30a2bbe81c232c149dfd71f9bf842f99606cf28d5cb27d30e75df4e09fa9c09c9d25061aaaa7820c99739e0a32e701633a6e5270b354a",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar-grid/ngx-calendar-grid.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-ngx-calendar-grid",
+            "selector": "ngx-calendar-grid",
             "styleUrls": [
                 "./ngx-calendar-grid.component.scss"
             ],
@@ -498,11 +498,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnDestroy } from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'lib-ngx-calendar-grid',\n  templateUrl: './ngx-calendar-grid.component.html',\n  styleUrls: ['./ngx-calendar-grid.component.scss'],\n})\nexport class NgxCalendarGridComponent implements OnDestroy {\n  dates?: number[];\n  selectedDate?: DateTime;\n\n  private readonly destroy$ = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.selectedDate$\n      .pipe(takeUntil(this.destroy$))\n      .subscribe((selectedDate: DateTime | undefined) => {\n        this.selectedDate = selectedDate;\n      });\n\n    this.ngxCalendarService.currentMonth$\n      .pipe(takeUntil(this.destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.dates = Array.from(\n          { length: datetime.daysInMonth },\n          (_, date) => date + 1\n        );\n      });\n  }\n\n  ngOnDestroy(): void {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}\n",
+            "sourceCode": "import { Component, OnDestroy } from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar-grid',\n  templateUrl: './ngx-calendar-grid.component.html',\n  styleUrls: ['./ngx-calendar-grid.component.scss'],\n})\nexport class NgxCalendarGridComponent implements OnDestroy {\n  dates?: number[];\n  selectedDate?: DateTime;\n\n  private readonly destroy$ = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.selectedDate$\n      .pipe(takeUntil(this.destroy$))\n      .subscribe((selectedDate: DateTime | undefined) => {\n        this.selectedDate = selectedDate;\n      });\n\n    this.ngxCalendarService.currentMonth$\n      .pipe(takeUntil(this.destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.dates = Array.from(\n          { length: datetime.daysInMonth },\n          (_, date) => date + 1\n        );\n      });\n  }\n\n  ngOnDestroy(): void {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use '../../../theme/variables';\n\n.date-grid {\n  display: grid;\n  grid-template-columns: repeat(7, minmax(0, 1fr));\n}\n\n.date-grid {\n  margin-top: 0.5em;\n  gap: var(--calendar-cell-gap);\n}\n\n.date-grid button {\n  position: relative;\n  border: 0;\n  width: var(--calendar-cell-width);\n  height: var(--calendar-cell-height);\n  border-radius: var(--calendar-cell-border-radius);\n}\n\n.date-button {\n  background-color: var(--calendar-cell-background-color);\n  color: var(--calendar-cell-color);\n}\n\n.date-grid button:hover,\n.date-grid button:focus {\n  outline: none;\n}\n\n.today {\n  color: var(--calendar-cell-today-color);\n}\n\n.selected {\n  background-color: var(--calendar-cell-selected-date-background-color);\n  color: var(--calendar-cell-selected-date-color);\n}\n",
+                    "data": "@use '../../../theme/variables';\n\n.ngx-calendar-date-grid {\n  display: grid;\n  grid-template-columns: repeat(7, minmax(0, auto));\n}\n\n.ngx-calendar-date-grid {\n  margin-top: 0.5em;\n  gap: var(--ngx-calendar-cell-gap);\n}\n\n.ngx-calendar-date-grid button {\n  position: relative;\n  border: 0;\n  width: var(--ngx-calendar-cell-width);\n  height: var(--ngx-calendar-cell-height);\n  border-radius: var(--ngx-calendar-cell-border-radius);\n\n  aspect-ratio: 1;\n}\n\n.ngx-calendar-date-button {\n  background-color: var(--ngx-calendar-cell-background-color);\n  color: var(--ngx-calendar-cell-color);\n}\n\n.ngx-calendar-date-grid button:hover,\n.ngx-calendar-date-grid button:focus {\n  outline: none;\n}\n\n.ngx-calendar-today {\n  color: var(--ngx-calendar-cell-today-color);\n}\n\n.ngx-calendar-selected {\n  background-color: var(--ngx-calendar-cell-selected-date-background-color);\n  color: var(--ngx-calendar-cell-selected-date-color);\n}\n",
                     "styleUrl": "./ngx-calendar-grid.component.scss"
                 }
             ],
@@ -536,18 +536,18 @@
             "implements": [
                 "OnDestroy"
             ],
-            "templateData": "<div class=\"date-grid\">\n  <button\n    class=\"date-button\"\n    lib-ngx-calendar-date\n    *ngFor=\"let date of dates\"\n    [date]=\"date\"\n    [selectedDate]=\"selectedDate\"\n  ></button>\n</div>\n"
+            "templateData": "<div class=\"ngx-calendar-date-grid\">\n  <button\n    class=\"ngx-calendar-date-button\"\n    ngx-calendar-date\n    *ngFor=\"let date of dates\"\n    [date]=\"date\"\n    [selectedDate]=\"selectedDate\"\n  ></button>\n</div>\n"
         },
         {
             "name": "NgxCalendarMonthComponent",
-            "id": "component-NgxCalendarMonthComponent-eada7a1aa37426e3cc172ee8349ebc65cbdefc65f7a6107da3585fcfd8d270048dbd45e2730cf192d8a16f20d68872fa5bc81a62fed6959c5e463c3ac1453c6a",
+            "id": "component-NgxCalendarMonthComponent-f899168ebd29f64328dc12d6f3e666c68e2a696d77b6d10dc899f7443c61e47af576aed07191a10b6c551be04a0bb0109fa9c9865570f0cf5ababb4b9179f67a",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar-month/ngx-calendar-month.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-ngx-calendar-month",
+            "selector": "ngx-calendar-month",
             "styleUrls": [
                 "./ngx-calendar-month.component.scss"
             ],
@@ -599,11 +599,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'lib-ngx-calendar-month',\n  templateUrl: './ngx-calendar-month.component.html',\n  styleUrls: ['./ngx-calendar-month.component.scss'],\n})\nexport class NgxCalendarMonthComponent {\n  currentMonth$ = this.ngxCalendarService.currentMonth$;\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {}\n\n  next(): void {\n    this.ngxCalendarService.nextMonth();\n  }\n\n  previous(): void {\n    this.ngxCalendarService.previousMonth();\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar-month',\n  templateUrl: './ngx-calendar-month.component.html',\n  styleUrls: ['./ngx-calendar-month.component.scss'],\n})\nexport class NgxCalendarMonthComponent {\n  currentMonth$ = this.ngxCalendarService.currentMonth$;\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {}\n\n  next(): void {\n    this.ngxCalendarService.nextMonth();\n  }\n\n  previous(): void {\n    this.ngxCalendarService.previousMonth();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use '../../../theme/variables';\n\n.month-wrapper {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  text-align: center;\n}\n\n.month {\n  font-weight: var(--calendar-month-font-weight);\n  font-size: var(--calendar-month-font-size);\n  color: var(--calendar-month-color);\n  padding-left: 8px;\n}\n\n.year {\n  font-weight: var(--calendar-year-font-weight);\n  font-size: var(--calendar-year-font-size);\n  color: var(--calendar-year-color);\n}\n\nbutton {\n  width: 30px;\n  height: 30px;\n\n  border: 0;\n}\n\nbutton:hover,\nbutton:focus {\n  outline: none;\n}\n\n.previous {\n  background-color: var(--calendar-previous-month-background-color);\n  font-weight: var(--calendar-previous-month-font-weight);\n  font-size: var(--calendar-previous-month-font-size);\n  color: var(--calendar-previous-month-color);\n}\n\n.next {\n  background-color: var(--calendar-next-month-background-color);\n  font-weight: var(--calendar-next-month-font-weight);\n  font-size: var(--calendar-next-month-font-size);\n  color: var(--calendar-next-month-color);\n}\n",
+                    "data": "@use '../../../theme/variables';\n\n.ngx-calendar-month-heading {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  text-align: center;\n}\n\n.ngx-calendar-month {\n  font-weight: var(--ngx-calendar-month-font-weight);\n  font-size: var(--ngx-calendar-month-font-size);\n  color: var(--ngx-calendar-month-color);\n  padding-left: 8px;\n}\n\n.ngx-calendar-year {\n  font-weight: var(--ngx-calendar-year-font-weight);\n  font-size: var(--ngx-calendar-year-font-size);\n  color: var(--ngx-calendar-year-color);\n}\n\nbutton {\n  width: 30px;\n  height: 30px;\n\n  border: 0;\n}\n\nbutton:hover,\nbutton:focus {\n  outline: none;\n}\n\n.ngx-calendar-previous {\n  background-color: var(--ngx-calendar-previous-month-background-color);\n  font-weight: var(--ngx-calendar-previous-month-font-weight);\n  font-size: var(--ngx-calendar-previous-month-font-size);\n  color: var(--ngx-calendar-previous-month-color);\n}\n\n.ngx-calendar-next {\n  background-color: var(--ngx-calendar-next-month-background-color);\n  font-weight: var(--ngx-calendar-next-month-font-weight);\n  font-size: var(--ngx-calendar-next-month-font-size);\n  color: var(--ngx-calendar-next-month-color);\n}\n",
                     "styleUrl": "./ngx-calendar-month.component.scss"
                 }
             ],
@@ -634,18 +634,18 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"month-wrapper\">\n  <div>\n    <span class=\"month\">\n      {{ (currentMonth$ | async)?.monthLong }}\n    </span>\n\n    <span class=\"year\">\n      {{ (currentMonth$ | async)?.year }}\n    </span>\n  </div>\n  <div>\n    <button class=\"previous\" (click)=\"previous()\">&lsaquo;</button>\n    <button class=\"next\" (click)=\"next()\">&rsaquo;</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"ngx-calendar-month-heading\">\n  <div>\n    <span class=\"ngx-calendar-month\">\n      {{ (currentMonth$ | async)?.monthLong }}\n    </span>\n\n    <span class=\"ngx-calendar-year\">\n      {{ (currentMonth$ | async)?.year }}\n    </span>\n  </div>\n  <div>\n    <button class=\"ngx-calendar-previous\" (click)=\"previous()\">&lsaquo;</button>\n    <button class=\"ngx-calendar-next\" (click)=\"next()\">&rsaquo;</button>\n  </div>\n</div>\n"
         },
         {
             "name": "NgxCalendarWeekComponent",
-            "id": "component-NgxCalendarWeekComponent-fdd5e2ed24d49331e198cfb03fc6ce98a51895b4288ea329f0f9c179b0789b2be65adf9650b58bb8f1da263dfa934239464e38d2d016fe19729a57081c1f05c5",
+            "id": "component-NgxCalendarWeekComponent-f2f978f70dbbfddd0d99f687aeb2ba026907b7a95a3df74bd688cc4ecb2cee26ee6b68d157f0df239264b5fd8417802b8dd5297fae7218bde4d0781b0265177f",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar-week/ngx-calendar-week.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-ngx-calendar-week",
+            "selector": "ngx-calendar-week",
             "styleUrls": [
                 "./ngx-calendar-week.component.scss"
             ],
@@ -664,11 +664,20 @@
                     "type": "NgxCalendarService",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 11,
                     "modifierKind": [
                         123,
                         144
                     ]
+                },
+                {
+                    "name": "weekdays",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": true,
+                    "description": "",
+                    "line": 10
                 }
             ],
             "methodsClass": [],
@@ -679,11 +688,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'lib-ngx-calendar-week',\n  templateUrl: './ngx-calendar-week.component.html',\n  styleUrls: ['./ngx-calendar-week.component.scss'],\n})\nexport class NgxCalendarWeekComponent {\n  constructor(public readonly ngxCalendarService: NgxCalendarService) {}\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar-week',\n  templateUrl: './ngx-calendar-week.component.html',\n  styleUrls: ['./ngx-calendar-week.component.scss'],\n})\nexport class NgxCalendarWeekComponent {\n  weekdays?: string[];\n  constructor(public readonly ngxCalendarService: NgxCalendarService) {\n    this.weekdays = this.ngxCalendarService.getWeekdays();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".day-of-week {\n  display: grid;\n  grid-template-columns: repeat(7, minmax(0, 1fr));\n  margin-top: 1.25em;\n  color: var(--calendar-weekday-color);\n}\n\n.day-of-week > * {\n  font-size: 0.7em;\n  font-weight: 500;\n  letter-spacing: 0.1em;\n  font-variant: small-caps;\n  text-align: center;\n}\n",
+                    "data": ".ngx-calendar-day-of-week {\n  display: grid;\n  grid-template-columns: repeat(7, minmax(0, 1fr));\n  margin-top: 1.25em;\n  color: var(--ngx-calendar-weekday-color);\n}\n\n.ngx-calendar-day-of-week > * {\n  font-size: 0.7em;\n  font-weight: 500;\n  letter-spacing: 0.1em;\n  font-variant: small-caps;\n  text-align: center;\n}\n",
                     "styleUrl": "./ngx-calendar-week.component.scss"
                 }
             ],
@@ -701,7 +710,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 9,
+                "line": 10,
                 "jsdoctags": [
                     {
                         "name": "ngxCalendarService",
@@ -714,7 +723,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"day-of-week\">\n  <small *ngFor=\"let weekday of ngxCalendarService.getWeekdays()\">\n    {{ weekday?.substring(0, 2) }}\n  </small>\n</div>\n"
+            "templateData": "<div class=\"ngx-calendar-day-of-week\">\n  <small *ngFor=\"let weekday of weekdays\">\n    {{ weekday?.substring(0, 2) }}\n  </small>\n</div>\n"
         }
     ],
     "modules": [
@@ -887,7 +896,7 @@
                 "linktype": "component",
                 "name": "NgxCalendarWeekComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

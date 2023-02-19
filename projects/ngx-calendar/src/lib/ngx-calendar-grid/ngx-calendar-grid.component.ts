@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NgxCalendarService } from '../ngx-calendar.service';
 
 @Component({
-  selector: 'lib-ngx-calendar-grid',
+  selector: 'ngx-calendar-grid',
   templateUrl: './ngx-calendar-grid.component.html',
   styleUrls: ['./ngx-calendar-grid.component.scss'],
 })

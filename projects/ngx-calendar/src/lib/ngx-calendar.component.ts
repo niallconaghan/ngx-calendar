@@ -11,7 +11,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NgxCalendarService } from './ngx-calendar.service';
 
 @Component({
-  selector: 'lib-ngx-calendar',
+  selector: 'ngx-calendar',
   templateUrl: './ngx-calendar.component.html',
   styleUrls: ['./ngx-calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
