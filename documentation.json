@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "NgxCalendarService",
-            "id": "injectable-NgxCalendarService-807a276fce9928bf83953d4ce3ce497517ec538422ec568e29347530b55346dc31c826192db001a809c3d960781c06c3ed4092a557f5296fca15b44d80db29f7",
+            "id": "injectable-NgxCalendarService-1dd8e6792c46d00f5e3cdb9db2e2aca579b72a4835dbfcd4c13c1842a67328b7710a9efb7cfd6b9a53e6a78e8139e6815eff6bfe9ed7347d05606e1142e6e74b",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.service.ts",
             "properties": [
                 {
@@ -45,7 +45,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -55,7 +55,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -65,7 +65,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -74,7 +74,7 @@
                     "args": [
                         {
                             "name": "value",
-                            "type": "DateTime",
+                            "type": "DateTime | undefined",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -88,7 +88,7 @@
                     "jsdoctags": [
                         {
                             "name": "value",
-                            "type": "DateTime",
+                            "type": "DateTime | undefined",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -102,7 +102,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { DateTime, Info } from 'luxon';\nimport { BehaviorSubject, Subject } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class NgxCalendarService {\n  currentMonth$ = new BehaviorSubject<DateTime>(DateTime.now());\n  selectedDate$ = new BehaviorSubject<DateTime | undefined>(undefined);\n\n  get currentMonth(): DateTime {\n    return this.currentMonth$.value;\n  }\n\n  dateSelected$ = new Subject<DateTime>();\n\n  constructor() {}\n\n  setDatetime(value: DateTime): void {\n    console.log(value);\n    if (value) {\n      this.selectedDate$.next(value);\n      this.currentMonth$.next(value);\n    } else {\n      this.currentMonth$.next(DateTime.now());\n    }\n  }\n\n  getWeekdays(): string[] {\n    return Info.weekdays('short');\n  }\n\n  nextMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: 1 }));\n  }\n\n  previousMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: -1 }));\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { DateTime, Info } from 'luxon';\nimport { BehaviorSubject, Subject } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class NgxCalendarService {\n  currentMonth$ = new BehaviorSubject<DateTime>(DateTime.now());\n  selectedDate$ = new BehaviorSubject<DateTime | undefined>(undefined);\n\n  get currentMonth(): DateTime {\n    return this.currentMonth$.value;\n  }\n\n  dateSelected$ = new Subject<DateTime>();\n\n  constructor() {}\n\n  setDatetime(value: DateTime | undefined): void {\n    this.selectedDate$.next(value);\n    this.currentMonth$.next(value ?? DateTime.now());\n  }\n\n  getWeekdays(): string[] {\n    return Info.weekdays('short');\n  }\n\n  nextMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: 1 }));\n  }\n\n  previousMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: -1 }));\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -131,8 +131,116 @@
     "directives": [],
     "components": [
         {
+            "name": "AppComponent",
+            "id": "component-AppComponent-a57d5d60f248e65b733956d782f7c3231accc98763fd0f2f6e13cc511509d4cd6b3a8e8c8352f90b1dce531110e867427226b1f6d5187d1e87dc8e457a03d805",
+            "file": "projects/demo/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "datetime",
+                    "defaultValue": "DateTime.now()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DateTime",
+                    "optional": true,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'test-app'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clear",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onChange",
+                    "args": [
+                        {
+                            "name": "result",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "result",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { DateTime } from 'luxon';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'test-app';\n  datetime?: DateTime = DateTime.now();\n\n  constructor() {}\n\n  onChange(result: any): void {\n    console.log(result);\n  }\n\n  clear() {\n    this.datetime = undefined;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "html,\nbody {\n  margin: 0px;\n\n  background-color: #272a33;\n\n  --ngx-calendar-font: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\",\n    Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n\n  --ngx-calendar-month-color: #e6e6e6;\n  --ngx-calendar-year-color: lightgray;\n\n  --ngx-calendar-previous-month-color: #e6e6e6;\n  --ngx-calendar-next-month-color: #e6e6e6;\n\n  --ngx-calendar-cell-color: #e6e6e6;\n  --ngx-calendar-cell-background-color: #323540;\n\n  --ngx-calendar-cell-selected-date-background-color: #2460c0;\n  --ngx-calendar-cell-selected-date-color: #e6e6e6;\n\n  --ngx-calendar-cell-today-color: #dead4c;\n\n  --ngx-calendar-cell-gap: 5px;\n\n  --ngx-calendar-width: 500px;\n  --ngx-calendar-padding: 1em;\n\n  //   --ngx-calendar-cell-height: 5ch;\n  //   --ngx-calendar-cell-width: 5ch;\n}\n",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 11
+            },
+            "templateData": "<ngx-calendar\n  [(datetime)]=\"datetime\"\n  (datetimeChange)=\"onChange($event)\"\n></ngx-calendar>\n\n<button (click)=\"clear()\">clear</button>\n\n<div>{{ datetime }}</div>\n"
+        },
+        {
             "name": "NgxCalendarComponent",
-            "id": "component-NgxCalendarComponent-a9578e805957a8eb27fae550be338df99fe4f6aed8738649d6a297ce442c6254fb3f2381f8e9f94e1a7c043629a87d8f32e9ccd138550deaa4521ff847a3d24e",
+            "id": "component-NgxCalendarComponent-cff93213d5109ff5462a2885fefba6fd1a6cd5e9efd4e8e019df1b23c938c5e35083cf63a7e3d9b74995b0783ec09eba0c0ef02c11cf68920932b0e3c53387cd",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -156,7 +264,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 20,
-                    "type": "DateTime",
+                    "type": "DateTime | undefined",
                     "decorators": []
                 }
             ],
@@ -190,7 +298,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime | undefined) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -239,7 +347,7 @@
                         "args": [
                             {
                                 "name": "value",
-                                "type": "DateTime",
+                                "type": "DateTime | undefined",
                                 "deprecated": false,
                                 "deprecationMessage": ""
                             }
@@ -249,7 +357,7 @@
                         "jsdoctags": [
                             {
                                 "name": "value",
-                                "type": "DateTime",
+                                "type": "DateTime | undefined",
                                 "deprecated": false,
                                 "deprecationMessage": "",
                                 "tagName": {
@@ -757,6 +865,54 @@
     ],
     "modules": [
         {
+            "name": "AppModule",
+            "id": "module-AppModule-0ec1dfc1b52c1b131464ba3e09e98ff8fa88b2628322ccb7c70a7d0fee987b70f5a969ada5e66a22856cf444a698683f07fb581aad7af9bf1546370f7abc0286",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/demo/src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgxCalendarModule } from '../../../ngx-calendar/src/lib/ngx-calendar.module';\n\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, NgxCalendarModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "NgxCalendarModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "NgxCalendarModule",
             "id": "module-NgxCalendarModule-ee5090e909fe5e9d41c07dc407a011dc4149998b1ca2ece69df5132815c6c068b3f0ca4c350632c3c5c8b5f212513fe8f5a973bc4bd41c263d01256ed87cff0f",
             "description": "",
@@ -892,6 +1048,15 @@
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/demo/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
             {
                 "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-date/ngx-calendar-date.component.ts",
                 "type": "component",

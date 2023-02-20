@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+// @use "../node_modules/@niallconaghan/ngx-calendar/theme/variables";
+
+html,
+body {
+  margin: 0px;
+
+  background-color: #272a33;
+
+  --ngx-calendar-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  --ngx-calendar-month-color: #e6e6e6;
+  --ngx-calendar-year-color: lightgray;
+
+  --ngx-calendar-previous-month-color: #e6e6e6;
+  --ngx-calendar-next-month-color: #e6e6e6;
+
+  --ngx-calendar-cell-color: #e6e6e6;
+  --ngx-calendar-cell-background-color: #323540;
+
+  --ngx-calendar-cell-selected-date-background-color: #2460c0;
+  --ngx-calendar-cell-selected-date-color: #e6e6e6;
+
+  --ngx-calendar-cell-today-color: #dead4c;
+
+  --ngx-calendar-cell-gap: 5px;
+
+  --ngx-calendar-width: 500px;
+  --ngx-calendar-padding: 1em;
+
+  //   --ngx-calendar-cell-height: 5ch;
+  //   --ngx-calendar-cell-width: 5ch;
+}

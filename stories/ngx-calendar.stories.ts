@@ -5,7 +5,8 @@ import {
   componentWrapperDecorator,
 } from '@storybook/angular';
 import { DateTime } from 'luxon';
-import { NgxCalendarComponent, NgxCalendarModule } from 'ngx-calendar';
+import { NgxCalendarModule } from '../projects/ngx-calendar/src/lib/ngx-calendar.module';
+import { NgxCalendarComponent } from '../projects/ngx-calendar/src/lib/ngx-calendar.component';
 
 export default {
   title: 'Example/Calendar',
@@ -38,5 +39,22 @@ export const SelectedDate = Template.bind({});
 
 SelectedDate.decorators = Default.decorators;
 SelectedDate.args = {
+  datetime: DateTime.now().set({ month: 3, day: 17 }),
+} as unknown as Partial<NgxCalendarComponent>;
+
+export const WeekViewDefault = Template.bind({});
+
+WeekViewDefault.decorators = Default.decorators;
+
+WeekViewDefault.args = {
+  view: 'week',
+} as unknown as Partial<NgxCalendarComponent>;
+
+export const WeekViewSelectedDate = Template.bind({});
+
+WeekViewSelectedDate.decorators = Default.decorators;
+
+WeekViewSelectedDate.args = {
+  view: 'week',
   datetime: DateTime.now().set({ month: 3, day: 17 }),
 } as unknown as Partial<NgxCalendarComponent>;

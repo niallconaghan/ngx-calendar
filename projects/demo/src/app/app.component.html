@@ -1,0 +1,8 @@
+<ngx-calendar
+  [(datetime)]="datetime"
+  (datetimeChange)="onChange($event)"
+></ngx-calendar>
+
+<button (click)="clear()">clear</button>
+
+<div>{{ datetime }}</div>
