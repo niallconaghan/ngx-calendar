@@ -1,5 +1,21 @@
 <div class="ngx-calendar">
-  <ngx-calendar-month></ngx-calendar-month>
+  <!-- <ngx-calendar-month></ngx-calendar-month>
   <ngx-calendar-week></ngx-calendar-week>
-  <ngx-calendar-grid></ngx-calendar-grid>
+  <ngx-calendar-grid></ngx-calendar-grid> -->
+
+  <!-- <ngx-calendar-month-week-view></ngx-calendar-month-week-view>
+  <ngx-calendar-week></ngx-calendar-week>
+  <ngx-calendar-grid-week-view></ngx-calendar-grid-week-view> -->
+
+  <ng-container *ngIf="view === 'full'">
+    <ngx-calendar-month></ngx-calendar-month>
+    <ngx-calendar-week></ngx-calendar-week>
+    <ngx-calendar-grid></ngx-calendar-grid>
+  </ng-container>
+
+  <ng-container *ngIf="view === 'week'">
+    <ngx-calendar-month-week-view></ngx-calendar-month-week-view>
+    <ngx-calendar-week></ngx-calendar-week>
+    <ngx-calendar-grid-week-view></ngx-calendar-grid-week-view>
+  </ng-container>
 </div>

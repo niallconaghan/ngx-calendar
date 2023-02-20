@@ -27,6 +27,14 @@ export class NgxCalendarService {
     return Info.weekdays('short');
   }
 
+  nextWeek(): void {
+    this.currentMonth$.next(this.currentMonth$.value.plus({ week: 1 }));
+  }
+
+  previousWeek(): void {
+    this.currentMonth$.next(this.currentMonth$.value.plus({ week: -1 }));
+  }
+
   nextMonth(): void {
     this.currentMonth$.next(this.currentMonth$.value.plus({ month: 1 }));
   }

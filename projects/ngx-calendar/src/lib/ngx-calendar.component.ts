@@ -21,11 +21,20 @@ export class NgxCalendarComponent implements OnDestroy {
     this.ngxCalendarService.setDatetime(value);
   }
 
+  @Input() set view(value: 'full' | 'week') {
+    this._view = value;
+  }
+
+  get view(): 'full' | 'week' {
+    return this._view;
+  }
+
   @Output() datetimeChange = new EventEmitter<DateTime>();
 
   /**
    * @ignore
    */
+  private _view: 'full' | 'week' = 'full';
   private readonly _destroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly ngxCalendarService: NgxCalendarService) {

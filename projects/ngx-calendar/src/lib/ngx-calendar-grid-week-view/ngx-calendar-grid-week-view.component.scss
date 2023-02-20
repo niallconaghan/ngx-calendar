@@ -1,0 +1,6 @@
+@use '../ngx-calendar-grid/ngx-calendar-grid.component.scss';
+
+.ngx-calendar-week-view-button {
+  --ngx-calendar-cell-width: 5ch;
+  --ngx-calendar-cell-height: 5ch;
+}
