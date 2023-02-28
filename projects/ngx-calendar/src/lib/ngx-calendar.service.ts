@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { DateTime, Info } from 'luxon';
 import { BehaviorSubject, Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class NgxCalendarService {
   currentMonth$ = new BehaviorSubject<DateTime>(DateTime.now());
   selectedDate$ = new BehaviorSubject<DateTime | undefined>(undefined);

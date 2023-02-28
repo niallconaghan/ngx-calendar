@@ -15,6 +15,7 @@ import { NgxCalendarService } from './ngx-calendar.service';
   templateUrl: './ngx-calendar.component.html',
   styleUrls: ['./ngx-calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  providers: [NgxCalendarService],
 })
 export class NgxCalendarComponent implements OnDestroy {
   @Input() set datetime(value: DateTime | undefined) {
@@ -35,6 +36,10 @@ export class NgxCalendarComponent implements OnDestroy {
    * @ignore
    */
   private _view: 'full' | 'week' = 'full';
+
+  /**
+   * @ignore
+   */
   private readonly _destroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly ngxCalendarService: NgxCalendarService) {

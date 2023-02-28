@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "NgxCalendarService",
-            "id": "injectable-NgxCalendarService-1dd8e6792c46d00f5e3cdb9db2e2aca579b72a4835dbfcd4c13c1842a67328b7710a9efb7cfd6b9a53e6a78e8139e6815eff6bfe9ed7347d05606e1142e6e74b",
+            "id": "injectable-NgxCalendarService-76540ffb1e931723b7ed5695073f0b1b82c0f117d42f4a77754a1d1ae190d48ccd253e3b4ce044f136618153b6321b32ba37d5e1b00a0852360c8155f145f8c8",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.service.ts",
             "properties": [
                 {
@@ -15,7 +15,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 8
                 },
                 {
                     "name": "dateSelected$",
@@ -25,7 +25,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 15
                 },
                 {
                     "name": "selectedDate$",
@@ -35,7 +35,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 9
                 }
             ],
             "methods": [
@@ -45,7 +45,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -55,7 +55,17 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "nextWeek",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -65,7 +75,17 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "previousWeek",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -82,7 +102,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -102,14 +122,14 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { DateTime, Info } from 'luxon';\nimport { BehaviorSubject, Subject } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class NgxCalendarService {\n  currentMonth$ = new BehaviorSubject<DateTime>(DateTime.now());\n  selectedDate$ = new BehaviorSubject<DateTime | undefined>(undefined);\n\n  get currentMonth(): DateTime {\n    return this.currentMonth$.value;\n  }\n\n  dateSelected$ = new Subject<DateTime>();\n\n  constructor() {}\n\n  setDatetime(value: DateTime | undefined): void {\n    this.selectedDate$.next(value);\n    this.currentMonth$.next(value ?? DateTime.now());\n  }\n\n  getWeekdays(): string[] {\n    return Info.weekdays('short');\n  }\n\n  nextMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: 1 }));\n  }\n\n  previousMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: -1 }));\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { DateTime, Info } from 'luxon';\nimport { BehaviorSubject, Subject } from 'rxjs';\n\n@Injectable()\nexport class NgxCalendarService {\n  currentMonth$ = new BehaviorSubject<DateTime>(DateTime.now());\n  selectedDate$ = new BehaviorSubject<DateTime | undefined>(undefined);\n\n  get currentMonth(): DateTime {\n    return this.currentMonth$.value;\n  }\n\n  dateSelected$ = new Subject<DateTime>();\n\n  constructor() {}\n\n  setDatetime(value: DateTime | undefined): void {\n    this.selectedDate$.next(value);\n    this.currentMonth$.next(value ?? DateTime.now());\n  }\n\n  getWeekdays(): string[] {\n    return Info.weekdays('short');\n  }\n\n  nextWeek(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ week: 1 }));\n  }\n\n  previousWeek(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ week: -1 }));\n  }\n\n  nextMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: 1 }));\n  }\n\n  previousMonth(): void {\n    this.currentMonth$.next(this.currentMonth$.value.plus({ month: -1 }));\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 17
+                "line": 15
             },
             "accessors": {
                 "currentMonth": {
@@ -118,7 +138,7 @@
                         "name": "currentMonth",
                         "type": "",
                         "returnType": "DateTime",
-                        "line": 13
+                        "line": 11
                     }
                 }
             },
@@ -240,7 +260,7 @@
         },
         {
             "name": "NgxCalendarComponent",
-            "id": "component-NgxCalendarComponent-cff93213d5109ff5462a2885fefba6fd1a6cd5e9efd4e8e019df1b23c938c5e35083cf63a7e3d9b74995b0783ec09eba0c0ef02c11cf68920932b0e3c53387cd",
+            "id": "component-NgxCalendarComponent-57ff526b6aa1557dcbeb7f44099d0a03bc8b4d24b417af0a8d8682b9550c3768a2677278562abafb75712d1608edb256e4619476b94fc0f21f6cd8e9bad330a8",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -248,7 +268,11 @@
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [],
+            "providers": [
+                {
+                    "name": "NgxCalendarService"
+                }
+            ],
             "selector": "ngx-calendar",
             "styleUrls": [
                 "./ngx-calendar.component.scss"
@@ -263,8 +287,16 @@
                     "name": "datetime",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "DateTime | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "view",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "\"full\" | \"week\"",
                     "decorators": []
                 }
             ],
@@ -274,7 +306,7 @@
                     "defaultValue": "new EventEmitter<DateTime>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 33,
                     "type": "EventEmitter"
                 }
             ],
@@ -286,7 +318,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -298,7 +330,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime | undefined) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnDestroy,\n  Output,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from './ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar',\n  templateUrl: './ngx-calendar.component.html',\n  styleUrls: ['./ngx-calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n  providers: [NgxCalendarService],\n})\nexport class NgxCalendarComponent implements OnDestroy {\n  @Input() set datetime(value: DateTime | undefined) {\n    this.ngxCalendarService.setDatetime(value);\n  }\n\n  @Input() set view(value: 'full' | 'week') {\n    this._view = value;\n  }\n\n  get view(): 'full' | 'week' {\n    return this._view;\n  }\n\n  @Output() datetimeChange = new EventEmitter<DateTime>();\n\n  /**\n   * @ignore\n   */\n  private _view: 'full' | 'week' = 'full';\n\n  /**\n   * @ignore\n   */\n  private readonly _destroy$: Subject<void> = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.dateSelected$\n      .pipe(takeUntil(this._destroy$))\n      .subscribe((datetime: DateTime) => {\n        this.ngxCalendarService.setDatetime(datetime);\n        this.datetimeChange.emit(datetime);\n      });\n  }\n\n  ngOnDestroy(): void {\n    this._destroy$.next();\n    this._destroy$.complete();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -320,7 +352,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 29,
+                "line": 43,
                 "jsdoctags": [
                     {
                         "name": "ngxCalendarService",
@@ -353,7 +385,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 20,
+                        "line": 21,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -366,9 +398,45 @@
                             }
                         ]
                     }
+                },
+                "view": {
+                    "name": "view",
+                    "setSignature": {
+                        "name": "view",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "\"full\" | \"week\"",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 25,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "\"full\" | \"week\"",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "view",
+                        "type": "",
+                        "returnType": "\"full\" | \"week\"",
+                        "line": 29
+                    }
                 }
             },
-            "templateData": "<div class=\"ngx-calendar\">\n  <ngx-calendar-month></ngx-calendar-month>\n  <ngx-calendar-week></ngx-calendar-week>\n  <ngx-calendar-grid></ngx-calendar-grid>\n</div>\n"
+            "templateData": "<div class=\"ngx-calendar\">\n  <ng-container *ngIf=\"view === 'full'\">\n    <ngx-calendar-month></ngx-calendar-month>\n    <ngx-calendar-week></ngx-calendar-week>\n    <ngx-calendar-grid></ngx-calendar-grid>\n  </ng-container>\n\n  <ng-container *ngIf=\"view === 'week'\">\n    <ngx-calendar-month-week-view></ngx-calendar-month-week-view>\n    <ngx-calendar-week></ngx-calendar-week>\n    <ngx-calendar-grid-week-view></ngx-calendar-grid-week-view>\n  </ng-container>\n</div>\n"
         },
         {
             "name": "NgxCalendarDateComponent",
@@ -561,6 +629,178 @@
                 }
             },
             "templateData": "<span>{{ date }}</span>\n"
+        },
+        {
+            "name": "NgxCalendarDateWeekViewComponent",
+            "id": "component-NgxCalendarDateWeekViewComponent-84d031e21e3c7999010780941ed2a0db9532967f7bf667470c8f7d42ce6aff5474adc39ada10c2602bdf727ab1820a2531395bc3589a3957d0bdf934c09ce190",
+            "file": "projects/ngx-calendar/src/lib/ngx-calendar-date-week-view/ngx-calendar-date-week-view.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "button [ngx-calendar-date-week-view]",
+            "styleUrls": [
+                "./ngx-calendar-date-week-view.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ngx-calendar-date-week-view.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "date",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "DateTime",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "destroy$",
+                    "defaultValue": "new Subject<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        121,
+                        144
+                    ]
+                },
+                {
+                    "name": "selectedDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DateTime",
+                    "optional": true,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click'"
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class.ngx-calendar-selected",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 52,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.ngx-calendar-today",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, HostBinding, HostListener, Input } from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { Subject, takeUntil } from 'rxjs';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'button [ngx-calendar-date-week-view]',\n  templateUrl: './ngx-calendar-date-week-view.component.html',\n  styleUrls: ['./ngx-calendar-date-week-view.component.scss'],\n})\nexport class NgxCalendarDateWeekViewComponent {\n  @Input() date!: DateTime;\n  selectedDate?: DateTime;\n\n  private readonly destroy$ = new Subject<void>();\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.selectedDate$\n      .pipe(takeUntil(this.destroy$))\n      .subscribe((selectedDate: DateTime | undefined) => {\n        this.selectedDate = selectedDate;\n      });\n  }\n\n  ngOnDestroy(): void {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n\n  @HostListener('click')\n  onClick(): void {\n    this.ngxCalendarService.dateSelected$.next(this.date);\n  }\n\n  // @HostBinding('style.grid-column')\n  // get gridOffset() {\n  //   return this.date === 1\n  //     ? this.ngxCalendarService.currentMonth.startOf('month').weekday\n  //     : null;\n  // }\n\n  @HostBinding('class.ngx-calendar-today')\n  get isToday() {\n    return (\n      this.date.day === DateTime.now().day &&\n      this.ngxCalendarService.currentMonth.month === DateTime.now().month &&\n      this.ngxCalendarService.currentMonth.year === DateTime.now().year\n    );\n  }\n\n  @HostBinding('class.ngx-calendar-selected')\n  get isSelected() {\n    return (\n      this.date.day === this.selectedDate?.day &&\n      this.ngxCalendarService.currentMonth.month === this.selectedDate?.month &&\n      this.ngxCalendarService.currentMonth.year === this.selectedDate?.year\n    );\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./ngx-calendar-date-week-view.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "isToday": {
+                    "name": "isToday",
+                    "getSignature": {
+                        "name": "isToday",
+                        "type": "",
+                        "returnType": "",
+                        "line": 43
+                    }
+                },
+                "isSelected": {
+                    "name": "isSelected",
+                    "getSignature": {
+                        "name": "isSelected",
+                        "type": "",
+                        "returnType": "",
+                        "line": 52
+                    }
+                }
+            },
+            "templateData": "<span>{{ date.day }}</span>\n"
         },
         {
             "name": "NgxCalendarGridComponent",
@@ -774,6 +1014,104 @@
             "templateData": "<div class=\"ngx-calendar-month-heading\">\n  <div>\n    <span class=\"ngx-calendar-month\">\n      {{ (currentMonth$ | async)?.monthLong }}\n    </span>\n\n    <span class=\"ngx-calendar-year\">\n      {{ (currentMonth$ | async)?.year }}\n    </span>\n  </div>\n  <div>\n    <button class=\"ngx-calendar-previous\" (click)=\"previous()\">&lsaquo;</button>\n    <button class=\"ngx-calendar-next\" (click)=\"next()\">&rsaquo;</button>\n  </div>\n</div>\n"
         },
         {
+            "name": "NgxCalendarMonthWeekViewComponent",
+            "id": "component-NgxCalendarMonthWeekViewComponent-7aa8d9f7541be5196b5ea34590dfb1b02b03177c255c53dfa1229e6738b2f1320db5c0da757312a22505ef060e1cdc78098e5095b0e26efafeb5d51439e60adf",
+            "file": "projects/ngx-calendar/src/lib/ngx-calendar-month-week-view/ngx-calendar-month-week-view.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ngx-calendar-month-week-view",
+            "styleUrls": [
+                "./ngx-calendar-month-week-view.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ngx-calendar-month-week-view.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentMonth$",
+                    "defaultValue": "this.ngxCalendarService.currentMonth$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "next",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "previous",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar-month-week-view',\n  templateUrl: './ngx-calendar-month-week-view.component.html',\n  styleUrls: ['./ngx-calendar-month-week-view.component.scss'],\n})\nexport class NgxCalendarMonthWeekViewComponent {\n  currentMonth$ = this.ngxCalendarService.currentMonth$;\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {}\n\n  next(): void {\n    this.ngxCalendarService.nextWeek();\n  }\n\n  previous(): void {\n    this.ngxCalendarService.previousWeek();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use '../ngx-calendar-month/ngx-calendar-month.component.scss';\n",
+                    "styleUrl": "./ngx-calendar-month-week-view.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"ngx-calendar-month-heading\">\n  <div>\n    <span class=\"ngx-calendar-month\">\n      {{ (currentMonth$ | async)?.monthLong }}\n    </span>\n\n    <span class=\"ngx-calendar-year\">\n      {{ (currentMonth$ | async)?.year }}\n    </span>\n  </div>\n  <div>\n    <button class=\"ngx-calendar-previous\" (click)=\"previous()\">&lsaquo;</button>\n    <button class=\"ngx-calendar-next\" (click)=\"next()\">&rsaquo;</button>\n  </div>\n</div>\n"
+        },
+        {
             "name": "NgxCalendarWeekComponent",
             "id": "component-NgxCalendarWeekComponent-f2f978f70dbbfddd0d99f687aeb2ba026907b7a95a3df74bd688cc4ecb2cee26ee6b68d157f0df239264b5fd8417802b8dd5297fae7218bde4d0781b0265177f",
             "file": "projects/ngx-calendar/src/lib/ngx-calendar-week/ngx-calendar-week.component.ts",
@@ -861,6 +1199,91 @@
                 ]
             },
             "templateData": "<div class=\"ngx-calendar-day-of-week\">\n  <small *ngFor=\"let weekday of weekdays\">\n    {{ weekday?.substring(0, 2) }}\n  </small>\n</div>\n"
+        },
+        {
+            "name": "NgxCalendarWeekViewComponent",
+            "id": "component-NgxCalendarWeekViewComponent-1f01a76ff41cef1e0a6a8188f590c9b88c789d630e3fa45916ff39b89ed9c192876afa10864a91b8eaa1aa36db5b9ef12071ad446db6f7c0d583637d9d383778",
+            "file": "projects/ngx-calendar/src/lib/ngx-calendar-grid-week-view/ngx-calendar-grid-week-view.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ngx-calendar-grid-week-view",
+            "styleUrls": [
+                "./ngx-calendar-grid-week-view.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ngx-calendar-grid-week-view.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "startOfWeek",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DateTime",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "weekdays",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DateTime[]",
+                    "optional": true,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectorRef, Component } from '@angular/core';\nimport { DateTime } from 'luxon';\nimport { NgxCalendarService } from '../ngx-calendar.service';\n\n@Component({\n  selector: 'ngx-calendar-grid-week-view',\n  templateUrl: './ngx-calendar-grid-week-view.component.html',\n  styleUrls: ['./ngx-calendar-grid-week-view.component.scss'],\n})\nexport class NgxCalendarWeekViewComponent {\n  startOfWeek!: DateTime;\n\n  weekdays?: DateTime[];\n\n  constructor(private readonly ngxCalendarService: NgxCalendarService) {\n    this.ngxCalendarService.currentMonth$.subscribe((datetime: DateTime) => {\n      this.startOfWeek = datetime.startOf('week');\n\n      const week = new Array<number>(7)\n        .fill(0)\n        .map((value: number, index: number) => {\n          return this.startOfWeek.plus({ days: index });\n        });\n\n      this.weekdays = week;\n    });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use '../ngx-calendar-grid/ngx-calendar-grid.component.scss';\n\n.ngx-calendar-week-view-button {\n  --ngx-calendar-cell-width: 5ch;\n  --ngx-calendar-cell-height: 5ch;\n}\n\n.ngx-calendar-week-view-grid {\n  justify-items: center;\n}\n",
+                    "styleUrl": "./ngx-calendar-grid-week-view.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 13,
+                "jsdoctags": [
+                    {
+                        "name": "ngxCalendarService",
+                        "type": "NgxCalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"ngx-calendar-date-grid ngx-calendar-week-view-grid\">\n  <button\n    class=\"ngx-calendar-date-button ngx-calendar-week-view-button\"\n    ngx-calendar-date-week-view\n    *ngFor=\"let date of weekdays\"\n    [date]=\"date\"\n  ></button>\n</div>\n"
         }
     ],
     "modules": [
@@ -914,13 +1337,13 @@
         },
         {
             "name": "NgxCalendarModule",
-            "id": "module-NgxCalendarModule-ee5090e909fe5e9d41c07dc407a011dc4149998b1ca2ece69df5132815c6c068b3f0ca4c350632c3c5c8b5f212513fe8f5a973bc4bd41c263d01256ed87cff0f",
+            "id": "module-NgxCalendarModule-0edb211154585f37d088a42aa66bc9c1dbff56b53a73f2d1b01ef7e1e6e67ad066bf2bbe9264d7e628ae45dd5f861581f1b11311f329f9f4ed75c2d3cafce6fe",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-calendar/src/lib/ngx-calendar.module.ts",
             "methods": [],
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { NgxCalendarComponent } from './ngx-calendar.component';\nimport { NgxCalendarMonthComponent } from './ngx-calendar-month/ngx-calendar-month.component';\nimport { NgxCalendarWeekComponent } from './ngx-calendar-week/ngx-calendar-week.component';\nimport { NgxCalendarGridComponent } from './ngx-calendar-grid/ngx-calendar-grid.component';\nimport { NgxCalendarDateComponent } from './ngx-calendar-date/ngx-calendar-date.component';\n\n@NgModule({\n  declarations: [\n    NgxCalendarComponent,\n    NgxCalendarMonthComponent,\n    NgxCalendarWeekComponent,\n    NgxCalendarGridComponent,\n    NgxCalendarDateComponent,\n  ],\n  imports: [CommonModule],\n  exports: [NgxCalendarComponent],\n})\nexport class NgxCalendarModule {}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { NgxCalendarComponent } from './ngx-calendar.component';\nimport { NgxCalendarMonthComponent } from './ngx-calendar-month/ngx-calendar-month.component';\nimport { NgxCalendarWeekComponent } from './ngx-calendar-week/ngx-calendar-week.component';\nimport { NgxCalendarGridComponent } from './ngx-calendar-grid/ngx-calendar-grid.component';\nimport { NgxCalendarDateComponent } from './ngx-calendar-date/ngx-calendar-date.component';\nimport { NgxCalendarWeekViewComponent } from './ngx-calendar-grid-week-view/ngx-calendar-grid-week-view.component';\nimport { NgxCalendarMonthWeekViewComponent } from './ngx-calendar-month-week-view/ngx-calendar-month-week-view.component';\nimport { NgxCalendarDateWeekViewComponent } from './ngx-calendar-date-week-view/ngx-calendar-date-week-view.component';\n\n@NgModule({\n  declarations: [\n    NgxCalendarComponent,\n    NgxCalendarMonthComponent,\n    NgxCalendarWeekComponent,\n    NgxCalendarGridComponent,\n    NgxCalendarDateComponent,\n    NgxCalendarWeekViewComponent,\n    NgxCalendarMonthWeekViewComponent,\n    NgxCalendarDateWeekViewComponent,\n  ],\n  imports: [CommonModule],\n  exports: [NgxCalendarComponent],\n})\nexport class NgxCalendarModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -936,13 +1359,22 @@
                             "name": "NgxCalendarDateComponent"
                         },
                         {
+                            "name": "NgxCalendarDateWeekViewComponent"
+                        },
+                        {
                             "name": "NgxCalendarGridComponent"
                         },
                         {
                             "name": "NgxCalendarMonthComponent"
                         },
                         {
+                            "name": "NgxCalendarMonthWeekViewComponent"
+                        },
+                        {
                             "name": "NgxCalendarWeekComponent"
+                        },
+                        {
+                            "name": "NgxCalendarWeekViewComponent"
                         }
                     ]
                 },
@@ -1000,6 +1432,26 @@
                 "deprecationMessage": "",
                 "type": "Story<NgxCalendarComponent>",
                 "defaultValue": "(args: NgxCalendarComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "WeekViewDefault",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/ngx-calendar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WeekViewSelectedDate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/ngx-calendar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
@@ -1036,6 +1488,26 @@
                     "deprecationMessage": "",
                     "type": "Story<NgxCalendarComponent>",
                     "defaultValue": "(args: NgxCalendarComponent) => ({\n  props: args,\n})"
+                },
+                {
+                    "name": "WeekViewDefault",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/ngx-calendar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WeekViewSelectedDate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/ngx-calendar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ]
         },
@@ -1058,6 +1530,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-date-week-view/ngx-calendar-date-week-view.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NgxCalendarDateWeekViewComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-date/ngx-calendar-date.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1067,12 +1548,30 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-grid-week-view/ngx-calendar-grid-week-view.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NgxCalendarWeekViewComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-grid/ngx-calendar-grid.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "NgxCalendarGridComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-calendar/src/lib/ngx-calendar-month-week-view/ngx-calendar-month-week-view.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NgxCalendarMonthWeekViewComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1099,7 +1598,7 @@
                 "linktype": "component",
                 "name": "NgxCalendarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1108,7 +1607,7 @@
                 "linktype": "injectable",
                 "name": "NgxCalendarService",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -1137,6 +1636,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/ngx-calendar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WeekViewDefault",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/ngx-calendar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WeekViewSelectedDate",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
